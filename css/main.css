@@ -1,0 +1,202 @@
+/* SUMÁRIO:
+  1. Reset e Variáveis
+  2. Tipografia
+  3. Global e Layout (Body, Main, Grid, Flex)
+  4. Componentes (Buttons, Cards)
+  5. Utilitários (Espaçamento, Helpers)
+*/
+
+/* 1. Reset e Variáveis */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100svh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+:root {
+  --fonte: "Inter", sans-serif;
+  --h1: 700 3rem /1.2 var(--fonte);
+  --h2: 700 2.25rem /1.2 var(--fonte);
+  --h3: 700 2rem /1.2 var(--fonte);
+  --h4: 700 1.75rem /1.2 var(--fonte);
+  --h5: 700 1.5rem /1.2 var(--fonte);
+  --h6: 700 1rem /1.2 var(--fonte);
+  --p: 400 1rem /1.5 var(--fonte);
+  --legenda: 400 0.875rem /1.2 var(--fonte);
+
+  --cor-1: hsl(199, 74%, 13%);
+  --cor-2: hsl(200, 92%, 90%);
+  --cor-fundo: hsl(0, 0%, 96%);
+  --cor-branca: hsl(0, 0%, 100%);
+  --cor-preta: hsl(0, 0%, 0%);
+  --cor-borda: hsl(0, 0%, 91%);
+  --cor-texto: hsl(240, 6%, 10%);
+
+  --sombra: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+
+  --medida-1: 0.125rem;
+  --medida-2: 0.25rem;
+  --medida-3: 0.5rem;
+  --medida-4: 0.75rem;
+  --medida-5: 1rem;
+  --medida-6: 1.5rem;
+  --medida-7: 2rem;
+  --medida-8: 2.5rem;
+  --medida-9: 3rem;
+  --medida-10: 3.5rem;
+  --medida-11: 4rem;
+  --medida-12: 4.5rem;
+  --medida-13: 5rem;
+  --medida-14: 6rem;
+}
+
+/* 2. Tipografia */
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/inter-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/inter-bold.woff2") format("woff2");
+}
+
+h1 {
+  font: var(--h1);
+}
+
+h2 {
+  font: var(--h2);
+}
+
+h3 {
+  font: var(--h3);
+}
+
+h4 {
+  font: var(--h4);
+}
+
+h5 {
+  font: var(--h5);
+}
+
+h6 {
+  font: var(--h6);
+}
+
+p,
+li {
+  font: var(--p);
+}
+
+.legenda {
+  font: var(--legenda);
+}
+
+a {
+  color: var(--cor-texto);
+}
+
+/* 3. Global e Layout (Body, Main, Grid, Flex) */
+
+body {
+  background-color: var(--cor-fundo);
+  font-family: "Inter", sans-serif;
+  color: var(--cor-texto);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns:
+    [tela-cheia-start] minmax(1rem, 1fr)
+    [conteudo-start] min((100% - 2rem), 900px) [conteudo-end] minmax(1rem, 1fr)
+    [tela-cheia-end];
+  row-gap: var(--medida-10);
+}
+
+.grid > :not(.tela-cheia),
+.tela-cheia > :not(.tela-cheia) {
+  grid-column: conteudo;
+}
+
+.grid > .tela-cheia {
+  grid-column: tela-cheia;
+  display: grid;
+  grid-template-columns: inherit;
+}
+
+main {
+  display: grid;
+
+  gap: var(--medida-10);
+}
+
+/* 4. Componentes (Buttons, Cards) */
+
+.btn {
+  display: flex;
+  gap: var(--medida-3);
+  place-items: center;
+  width: fit-content;
+  font: var(--h6);
+  padding: var(--medida-4) var(--medida-6);
+  background-color: var(--cor-2);
+  color: var(--cor-1);
+  border-radius: var(--medida-3);
+  border: none;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transition: 0.25s ease-in-out;
+  background-color: hsl(201, 72%, 76%);
+  box-shadow: var(--sombra);
+}
+
+.btn-icone {
+  fill: var(--cor-1);
+  height: 1.25rem;
+}
+
+/* 5. Utilitários (Espaçamento, Helpers) */
+
+.esp-elementos > * + * {
+  margin-top: 1em;
+}

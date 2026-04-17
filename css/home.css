@@ -1,0 +1,17 @@
+.hero {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: var(--medida-9);
+  margin: var(--medida-8);
+}
+
+.hero-foto {
+  height: 12.5rem;
+  border-radius: 50%;
+}
+
+.hero-btns {
+  display: flex;
+  gap: var(--medida-7);
+}
